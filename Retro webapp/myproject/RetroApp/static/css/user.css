@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Retro';
+    src: url('/static/fonts/Qadang-m2KLP.ttf') format('truetype');
+}
+  
+
+body {
+    background-color: hsl(154 50% 5%);
+    color: hsl(152 84% 70%);
+    font-family:  Retro;
+    text-shadow: 0 0 5px hsl(154, 84%, 70%);
+}
+
+#glare {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: radial-gradient(hsl(154 5% 15%) 0% hsl(154 50% 5%) 70%);
+}
+
+@keyframes lines {
+    0% {background-position: 0px 0px}
+    50% {background-position: 0px 0px}
+    51% {background-position: 0px 2px}
+    100% {background-position: 0px 2px}
+}
+
+#interlaced {
+    position: fixed;
+    background: repeating-linear-gradient(transparent 0px 1px, hsl(154 0% 0%/.3) 
+    3px 4px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    animation: lines 0.06666666s linear infinite;
+}
+
+
+@keyframes blink {
+    0% {opacity: 0}
+    30% {opacity: 1}
+    70% {opacity: 1}
+    100% {opacity: 0}
+}
+
+.blink {
+    animation: blink 0.4s linear infinite;
+}
+
+.placeUser {
+    font-size: 35px;
+    
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.user_page {
+    border: hsl(152 84% 70%);
+
+}
+
+input[type="submit"] {
+    background-color: hsl(154 50% 5%);
+    border: none;
+    padding: 5px;
+    color:  hsl(152 84% 70%);
+    font-family: 'Press Start 2P';
+    text-shadow:0 0 5px hsl(154, 84%, 70%); 
+    caret-color: chartreuse;   
+}
+

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/Library.css' %}">
+</head>
+<body>
+    <ul id="NavBar">
+        <li><a href="{% url 'home' %}">Return Home</a></li>
+    </ul>
+
+    <h2>{{ username }}'s Library</h2>
+        
+    <div class="container">
+        
+            <br>
+            {% for entry in library_entries %}
+                <li style="margin-bottom: 20px", p>
+                    <strong>{{ entry.book.title }}</strong><br>
+                    <br>
+                    <em>by {{ entry.book.authors }}</em><br>
+                    <br>
+                    <img src={{ entry.book.thumbnail }} alt="img" width="100" height="auto">
+                    <br>
+                    <p> Description: {{ entry.book.description }}</p>
+                    <form action="{% url 'delete_book' entry.id %}" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                    
+                </li>
+            {% endfor %}
+        
+    </div>
+    
+        <div id="interlaced"></div>
+        <div id="glare"></div>
+
+</body>
+</html>

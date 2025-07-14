@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Retro';
+    src: url('/static/fonts/Qadang-m2KLP.ttf') format('truetype');
+  }
+
+  :root {
+    --bg--color: #0a0a12;
+    --text-color: #00ff41;
+    --highlight-color: #008f11;
+    --border-color: rgba(0, 255, 65, 0.7);
+    --glow-color: rgba(0, 255, 65, 0.7);
+    --error-color: #ff0033;
+} 
+  
+
+  
+
+body {
+    background-color: var(--bg--color);
+    color: var(--text-color);
+    font-family: Retro;
+    text-shadow: 0 0 5px var(--glow-color);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#NavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    margin: 0;
+    list-style-type: none;
+    box-shadow: 0 0 10px var(--glow-color);
+    position: relative;
+    z-index: 1000; 
+
+}
+
+#NavBar a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#NavBar a:hover {
+    border: 1px solid var(--highlight-color);
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+#glare {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: radial-gradient(hsl(154 5% 15%) 0% hsl(154 50% 5%) 70%);
+}
+
+@keyframes lines {
+    0% {background-position: 0px 0px}
+    50% {background-position: 0px 0px}
+    51% {background-position: 0px 2px}
+    100% {background-position: 0px 2px}
+}
+
+#interlaced {
+    position: fixed;
+    background: repeating-linear-gradient(transparent 0px 1px, hsl(154 0% 0%/.3) 
+    3px 4px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    animation: lines 0.06666666s linear infinite;
+}
+
+
+@keyframes blink {
+    0% {opacity: 0}
+    30% {opacity: 1}
+    70% {opacity: 1}
+    100% {opacity: 0}
+}
+
+.blink {
+    animation: blink 0.4s linear infinite;
+}
+
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(0, 10, 0, 0.7);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+    z-index: 2;
+   
+
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 255, 65, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--highlight-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+h2 {
+    color: var(--highlight-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+#total_u {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    background-color: rgba(0, 20, 0, 0.5);
+    border: 1px solid var(--border-color);
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0;
+   
+}
+
+.container > ul > li {
+    background-color: rgba(0, 15, 0, 0.5);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    box-shadow: 0 0 10px var(--glow-color);
+    transition: all 0.3s ease;
+}
+
+.container > ul > li:hover {
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.container ul ul li {
+    background-color: rgba(0, 25, 0, 0.3);
+    border-left: 3px solid var(--highlight-color);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+h5 {
+    color: var(--highlight-color);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+#no_book {
+    color: var(--error-color);
+}
+
+@media (max-width: 768px) {
+    #NavBar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .contanier {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+}
