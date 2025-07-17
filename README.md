@@ -77,5 +77,4 @@
 
 ---
 
-🕹️ Built with nostalgia and clean code.
 
