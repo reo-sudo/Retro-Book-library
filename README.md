@@ -2,7 +2,7 @@
 
 [![][build-shield]][build-status] [![][coverage-shield]][coverage-link]
 
-* * *…• Retro‑vision Interface • Text bigger, bold.,., bold.,.,
+* * *
 
 **⚡ Purpose:** Online book library with Google Books integration.  
 **👥 Users:** Students & Admins.  
