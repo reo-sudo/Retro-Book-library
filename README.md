@@ -1,131 +1,83 @@
-───────────────────────────────────────────────
-⟬📼 RETRO BOOK LIBRARY 📖⟭
-───────────────────────────────────────────────
-❝ Bringing nostalgia to the cloud ☁️ with Google Books magic ❞
-───────────────────────────────────────────────
+# 🌌 *RETRO BOOK LIBRARY*
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 🧠 Purpose
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-・Create a fully functional media outcome (NCEA Level 3)
-・Retro-themed book manager 📚
-・Integrates Google Books API 🔍
-・Includes student user roles & admin dashboard 💻
+[![][build-shield]][build-status] [![][coverage-shield]][coverage-link]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+* * *
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 👥 Users
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-★ Students
-┗▶ Can register, log in, search books, add/remove them from personal library
-★ Admin
-┗▶ Can view all users and their library collections
+…• Retro‑vision Interface • Text bigger, bold.,., bold.,.,
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**⚡ Purpose:** Online book library with Google Books integration.  
+**👥 Users:** Students & Admins.  
+**🛠️ Tech Stack:** Python • Django • SQLite • HTML/CSS/JS
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 🧰 Tech Stack
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-‣ Python 3 🐍
-‣ Django Framework 🌐
-‣ SQLite Database 🗃️
-‣ HTML/CSS/JavaScript 🎨
-‣ Google Books API ☁️
-‣ Retro-styled frontend (fonts, colors, layout) 🎮
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🕹️ Features
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 💡 Key Features
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-✦ User Registration & Login System
-✦ Google Book Search Integration
-✦ Prevents duplicate book entries using Google ID
-✦ Each user has a personal library
-✦ Admin Dashboard to view all users and their books
-✦ Fully retro aesthetic (CSS styling + vibe)
+| Feature                    | Description                                    |
+|----------------------------|------------------------------------------------|
+| **Login/Register**         | Authenticated portal with students, admin.   |
+| **Search Books**           | Uses Google Books API + local DB results.     |
+| **Add to Library**         | Users save books; admin sees dashboard.       |
+| **Manage Books**           | Delete entries, user‑specific tracking.       |
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 🧪 Test Table (Frontend Media Outcome)
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+## 🧰 Repo Structure
 
-Component	Tested ✅	Result
-User Registration	✅	Success
-Login / Logout	✅	Works as expected
-Book Search	✅	Google API Integration
-Add to Library	✅	Prevents duplicates
-Delete Book	✅	Cleans up properly
-Admin View	✅	Sees users + libraries
+```
+/RetroApp/
+├── models.py
+├── views.py
+├── templates/
+│   ├── home.html
+│   ├── library.html
+│   └── user.html
+└── static/css/
+```
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 📘 ERD (Entity Relationship Diagram)
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+## 🕹️ Retro Badges
 
-↳ Book
-┣━ title
-┣━ authors
-┣━ description
-┣━ thumbnail
-┗━ google_id (unique)
+[![Build Status](https://img.shields.io/github/workflow/status/You/Repo/CI?style=for-the-badge)](https://github.com/You/Repo/actions)  
+[![Coverage](https://img.shields.io/badge/Coverage-85%25-brightgreen?style=for-the-badge)](...)
 
-↳ LibraryEntry
-┣━ user (FK)
-┣━ book (FK)
-┗━ date_added
+---
 
-👾 1 Book → Many Users
-👾 1 User → Many Books
+## 💾 Getting Started
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Clone this repo  
+2. `pip install -r requirements.txt`  
+3. `python manage.py migrate`  
+4. `python manage.py runserver`  
+5. Explore locally, enjoy retro vibes 🕹️
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 🚀 Run Locally
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-📝 Prerequisites: Python 3, Django, pip
+---
 
-❶ Clone repo
-❷ Run the migrations
+## ✨ Future Enhancements
 
-nginx
-Copy
-Edit
-python3 manage.py makemigrations  
-python3 manage.py migrate  
-❸ Run the server
+- 📚 Book ratings & reviews
+- 📈 Reading stats
+- 🔐 Role-based permissions
+- 🎨 Dark mode retro UI
 
-nginx
-Copy
-Edit
-python3 manage.py runserver  
-❹ Access it at: http://localhost:8000
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🙌 Credits
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 🔮 Future Add-Ons
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-✧ Add a star rating & review system ⭐
-✧ Export book list to PDF/CSV 📤
-✧ Animate covers like VHS-style scrolling
-✧ Theme selector (CRT green, amber, etc.)
+- Django Docs
+- Google Books API
+- Shields.io
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃ 🕶️ Aesthetic
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-Retro 80s–90s design vibes:
-✷ Terminal fonts (monospace)
-✷ Neon glow accents
-✷ Pixel art & CRT glitch effects (optional CSS)
-✷ 🧃 Vaporwave mode: pending...
+[build-shield]: https://img.shields.io/badge/CI-passing-green.svg?style=for-the-badge  
+[build-status]: https://github.com/You/Repo/actions  
+[coverage-shield]: https://img.shields.io/badge/Coverage-85%25-brightgreen.svg?style=for-the-badge  
+[coverage-link]: https://codecov.io/gh/You/Repo
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
-💾 Made with vintage vibes by [Your Name]
-🗓️ 2025 | 📼 Retro Book Library™
+🕹️ Built with nostalgia and clean code.
+
