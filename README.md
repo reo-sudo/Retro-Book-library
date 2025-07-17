@@ -1,32 +1,131 @@
-#Retro Book Library with Google Books Integration
-An online book library web app built with Python and Django that lets students search, add, and manage books in their personal libraries. It integrates seamlessly with the Google Books API to fetch book details and cover images.
+───────────────────────────────────────────────
+⟬📼 RETRO BOOK LIBRARY 📖⟭
+───────────────────────────────────────────────
+❝ Bringing nostalgia to the cloud ☁️ with Google Books magic ❞
+───────────────────────────────────────────────
 
-##Features
-User authentication (register, login, logout)
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🧠 Purpose
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+・Create a fully functional media outcome (NCEA Level 3)
+・Retro-themed book manager 📚
+・Integrates Google Books API 🔍
+・Includes student user roles & admin dashboard 💻
 
-Search local library and Google Books API simultaneously
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Add books from search results to user’s personal library
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 👥 Users
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+★ Students
+┗▶ Can register, log in, search books, add/remove them from personal library
+★ Admin
+┗▶ Can view all users and their library collections
 
-View and manage your own book collection
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Admin dashboard to monitor all users and their libraries
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🧰 Tech Stack
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+‣ Python 3 🐍
+‣ Django Framework 🌐
+‣ SQLite Database 🗃️
+‣ HTML/CSS/JavaScript 🎨
+‣ Google Books API ☁️
+‣ Retro-styled frontend (fonts, colors, layout) 🎮
 
-Clean UI built with HTML, CSS, and JavaScript
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Robust handling of duplicates and error messages
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 💡 Key Features
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+✦ User Registration & Login System
+✦ Google Book Search Integration
+✦ Prevents duplicate book entries using Google ID
+✦ Each user has a personal library
+✦ Admin Dashboard to view all users and their books
+✦ Fully retro aesthetic (CSS styling + vibe)
 
-##Tech Stack
-Python 3.x
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Django Web Framework
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🧪 Test Table (Frontend Media Outcome)
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-SQLite (default Django DB)
+Component	Tested ✅	Result
+User Registration	✅	Success
+Login / Logout	✅	Works as expected
+Book Search	✅	Google API Integration
+Add to Library	✅	Prevents duplicates
+Delete Book	✅	Cleans up properly
+Admin View	✅	Sees users + libraries
 
-Google Books API
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-HTML / CSS / JavaScript frontend
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 📘 ERD (Entity Relationship Diagram)
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-##Purpose
-Designed for students and admins to efficiently browse, save, and organize books relevant to their studies and interests.
+↳ Book
+┣━ title
+┣━ authors
+┣━ description
+┣━ thumbnail
+┗━ google_id (unique)
 
+↳ LibraryEntry
+┣━ user (FK)
+┣━ book (FK)
+┗━ date_added
+
+👾 1 Book → Many Users
+👾 1 User → Many Books
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🚀 Run Locally
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+📝 Prerequisites: Python 3, Django, pip
+
+❶ Clone repo
+❷ Run the migrations
+
+nginx
+Copy
+Edit
+python3 manage.py makemigrations  
+python3 manage.py migrate  
+❸ Run the server
+
+nginx
+Copy
+Edit
+python3 manage.py runserver  
+❹ Access it at: http://localhost:8000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🔮 Future Add-Ons
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+✧ Add a star rating & review system ⭐
+✧ Export book list to PDF/CSV 📤
+✧ Animate covers like VHS-style scrolling
+✧ Theme selector (CRT green, amber, etc.)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🕶️ Aesthetic
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+Retro 80s–90s design vibes:
+✷ Terminal fonts (monospace)
+✷ Neon glow accents
+✷ Pixel art & CRT glitch effects (optional CSS)
+✷ 🧃 Vaporwave mode: pending...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💾 Made with vintage vibes by [Your Name]
+🗓️ 2025 | 📼 Retro Book Library™
