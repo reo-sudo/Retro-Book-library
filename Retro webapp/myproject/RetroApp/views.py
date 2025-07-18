@@ -44,8 +44,10 @@ def Library_view(request):
 
 @login_required
 def  user_view(request):
+    library_count = LibraryEntry.objects.filter(user=request.user).count()
     return render(request, 'user.html', {
-        'username': request.user.username
+    'username': request.user.username,
+    'library_count': library_count,
     })
 
 def register_views(request):
@@ -93,6 +95,10 @@ def search_books(request):
 
             if 'items' in data:
                 for item in data['items']:
+                    google_id = item['id']
+                    if Book.objects.filter(google_id=google_id).exists():
+                        continue
+                    
                     info = item['volumeInfo']
                     results.append({
                         'source': 'google',
@@ -123,16 +129,14 @@ def add_book(request):
         thumbnail = request.POST.get('thumbnail', '')
         google_id = request.POST.get('google_id')
 
-        if not title:
-            messages.error(request, 'Title is Required.')
+        if not title or not google_id:
+            messages.error(request, 'Title or Google ID is Required.')
             return redirect('home')
         
         
 
-        if google_id:
-            existing_book = Book.objects.filter(google_id=google_id).first()
-        else:
-            existing_book = Book.objects.filter(title=title, authors=authors).first()
+        existing_book = Book.objects.filter(google_id=google_id).first()
+        
 
         if not existing_book:   
             try:
@@ -202,5 +206,7 @@ def delete_book(request, entry_id):
     return redirect('Library')
         
 
+
+        
 
         
