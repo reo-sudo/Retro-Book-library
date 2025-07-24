@@ -1,14 +1,137 @@
 @font-face {
     font-family: 'Retro';
     src: url('/static/fonts/Qadang-m2KLP.ttf') format('truetype');
+  }
+  
+
+:root {
+    --bg--color: #0a0a12;
+    --text-color: #00ff41;
+    --highlight-color: #008f11;
+    --border-color: rgba(0, 255, 65, 0.7);
+    --glow-color: rgba(0, 255, 65, 0.7);
+    --error-color: #ff0033;
+
+
 }
+
   
 
 body {
-    background-color: hsl(154 50% 5%);
+    background-color: var(--bg--color);
     color: hsl(152 84% 70%);
-    font-family:  Retro;
+    font-family: Retro;
     text-shadow: 0 0 5px hsl(154, 84%, 70%);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.Userbox {
+  border: 2px solid var(--border-color);
+  border-radius: 1px;
+  background:  rgba(0, 10, 0, 0.7);
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 0 15px var(--glow-color);
+  text-align: center;
+    
+}
+
+.BookBox {
+  border: 2px solid var(--border-color);
+  border-radius: 1px;
+  background: rgba(0, 10, 0, 0.7);
+  padding: 1rem;
+  margin: 2rem;
+  width: 65%;
+  max-width: 500px;
+  box-shadow: 0 0 15px var(--glow-color);
+  text-align: left;
+  
+  
+}
+
+
+
+#NavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    margin: 0;
+    list-style-type: none;
+    box-shadow: 0 0 10px var(--glow-color);
+
+}
+
+#NavBar a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#NavBar a:hover {
+    border: 1px solid var(--highlight-color);
+    text-shadow: 0 0 5px var(--glow-color);
+}
+
+.UserPlace {
+    display: flex;
+    align-items: center;
+    
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+    background-color: rgba(0, 10, 0, 0.7);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(0, 255, 65, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100% }
+}
+
+h2 {
+    color: var(--highlight-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    text-shadow: 0 0 5px var(--glow-color);
+}
+
+p {
+    margin: 1rem 0;
 }
 
 #glare {
@@ -17,8 +140,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
-    background: radial-gradient(hsl(154 5% 15%) 0% hsl(154 50% 5%) 70%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0 255, 65, 0.1) 0%,
+        rgba(0, 0, 0, 0) 70%
+    );
+    pointer-events: none;
+    z-index: 100;
 }
 
 @keyframes lines {
@@ -53,27 +181,10 @@ body {
     animation: blink 0.4s linear infinite;
 }
 
-.placeUser {
-    font-size: 35px;
-    
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-textarea:focus, input:focus{
-    outline: none;
-}
-
-.user_page {
-    border: hsl(152 84% 70%);
-
-}
-
-input[type="submit"] {
-    background-color: hsl(154 50% 5%);
-    border: none;
-    padding: 5px;
-    color:  hsl(152 84% 70%);
-    font-family: 'Press Start 2P';
-    text-shadow:0 0 5px hsl(154, 84%, 70%); 
-    caret-color: chartreuse;   
-}
 
