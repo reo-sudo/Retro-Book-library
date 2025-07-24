@@ -23,13 +23,22 @@
         <br><br>
         <input type="submit" value="Log In"> 
     </form>
+    
+    <div class="register">
+      <p>New user? Sign up Here!</p> 
+      <a href="{% url 'register' %}"><button>Click Here!</button></a>
+    </div>
+    
 </div>   
 
-    <p>New user? <a href="{% url 'register' %}">Sign up Here!</a></p>
+
+    
+ 
+    
 
     {% if messages %}
     {% for message in messages %}
-      <p style="color: red;">{{ message }}</p>
+      <p style="color: yellow;">{{ message }}</p>
     {% endfor %}
   {% endif %}
   
