@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-        
+
     <ul id="NavBar">
         <li><a href="{% url 'Library' %}">Library</a></li>
         {% if username == "Admin" %}
@@ -17,7 +17,7 @@
         <div class="UserPlace">
             <li><a href="{% url 'user' %}" id="user">user: <span class="highlight">{{ username }}</span></a></li>
         </div>
-        
+
     </ul>
 
     <div class="container">
@@ -30,58 +30,90 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        
+
         <h2>Search books</h2>
-        
+
             <form id="search-form" method="GET">
                 <input id="SearchInput" type="text" name="q" placeholder="Search for books" required>
                 <div id="SearchRes2"></div>
         <div class="flex-line">
                 <button type="submit">Search</button>
             </form>
-            
+
             <form method="POST" action="{% url 'logout' %}" style="display:inline;">
                 {% csrf_token %}
                 <button class="logout-link">LOGOUT:[{{ username }}]</button>
             </form>
         </div>
-        
-        
-        <div id="BookResults"></div>
-        
+
         {% if username == "Admin" %}
-        <h2>ADMIN TOOLS:</h2>
-        <form method="POST" action="{% url 'add_book' %}">
-            {% csrf_token %}
-            <input type="text" name="title" placeholder="Book Title" required>
-            <input type="text" name="authors" placeholder="Authors">
-            <input type="text" name="description"  placeholder="Description">
-            <input type="url" name="thumbnail" placeholder="Thumbnail URl">
-            <input type="text" name="google_id" placeholder="Google Book ID" required>
-            <button type="submit">Add Book</button>
-        </form>
+          <h2>ADMIN TOOLS:</h2>
+          <form method="POST" action="{% url 'add_book' %}">
+              {% csrf_token %}
+              <input type="text" name="title" placeholder="Book Title" required>
+              <input type="text" name="authors" placeholder="Authors">
+              <input type="text" name="description"  placeholder="Description">
+              <input type="url" name="thumbnail" placeholder="Thumbnail URl">
+              <input type="text" name="google_id" placeholder="Google Book ID" required>
+              <button type="submit">Add Book to Personal Library</button>
+          </form>
+          {% endif %}
+
+        {% if picks %}
+        <div class="todays-picks">
+            <h2>Today's picks:</h2>
+            <div class="picks-scroll">
+                {% for book in picks %}
+                    <div class="pick-card">
+                        {% if book.thumbnail %}
+                           <div class="image-box">
+                              <img src="{{ book.thumbnail }}" alt="thumbnail">
+                           </div>
+                        {% endif %}
+                        <p class="book-title">{{ book.title }}</p>
+                        <small>{{ book.description|truncatewords:15 }}</small>
+
+                        <form method="POST" action="{% url 'add_book' %}">
+                           {% csrf_token %}
+                           <input type="hidden" name="title" value="{{ book.title }}">
+                           <input type="hidden" name="authors" value="{{ book.authors }}">
+                           <input type="hidden" name="description" value="{{ book.description }}">
+                           <input type="hidden" name="thumbnail" value="{{ book.thumbnail }}">
+                           <input type="hidden" name="google_id" value="{{ book.google_id }}">
+                           <button type="submit">Add Book</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
         {% endif %}
+
+
+
+        <div id="BookResults"></div>
+
+
     </div>
 
-    
-    
 
-    
+
+
+
 
    <script>
     const csrftoken = '{{ csrf_token }}'
 
     document.getElementById('search-form').addEventListener('submit', function(e){
         e.preventDefault();
-        
+
     const query = document.querySelector('input[name="q"]').value;
     const SearchRes2 = document.getElementById('SearchRes2');
     const Status = document.getElementById('Status')
-    const resultsDiv = document.getElementById('BookResults'); 
-    
-            
+    const resultsDiv = document.getElementById('BookResults');
+
+
         SearchRes2.textContent = `Searching.......`;
-        
+
         setTimeout(()=> {
                 SearchRes2.textContent = `> SEARCHING: for ${query}`;
                 Status.textContent = `SYSTEM STATUS: RQUESTING API`;
@@ -95,8 +127,8 @@
 
                 if (data.items && data.items.length > 0) {
                     data.items.forEach(item => {
-                        
-                        
+
+
                         const title = item.title || 'No Title';
                         const authors = item.authors || 'Unknown Author';
                         const description = item.description || 'No description available.';
@@ -107,7 +139,7 @@
                         div.classList.add('book-card');
 
                         div.innerHTML = `
-                        <img src="${thumbnail}" alt="${title} Thubnail" style="width:100px; height:auto;"> 
+                        <img src="${thumbnail}" alt="${title} Thubnail" style="width:100px; height:auto;">
                         <h3>${title}</h3>
 
                         <p><strong>Authors:</strong> ${authors}</p>
@@ -121,8 +153,8 @@
                             <input type="hidden" name="google_id" value="${googleId}">
                             <button type="submit">Borrow Book</button>
                         </form>
-                        
-                        
+
+
                         `;
                         resultsDiv.appendChild(div);
                     });
@@ -133,15 +165,15 @@
             .catch(error => {
                 document.getElementById('BookResults').textContent = 'Error fetch books';
                 console.error(error);
-            }); 
-
-
-              
             });
-        
-    
+
+
+
+            });
+
+
    </script>
-        
+
 
     <div id="SearchRes"></div>
     <div id="Results"></div>
@@ -155,5 +187,5 @@
     </div>
 
 </body>
-</html>  
+</html>
 
