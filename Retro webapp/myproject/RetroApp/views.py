@@ -12,6 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+import random
+import requests
 
 def login_view(request):
     if request.method == 'POST':
@@ -29,9 +31,34 @@ def login_view(request):
 
 @login_required
 def home_view(request):
+    keywords = ['science', 'maths', 'coding', 'fantasy', 'history', 'health']
+    query = random.choice(keywords)
+
+    picks = []
+    try:
+        url = f'https://www.googleapis.com/books/v1/volumes?q={query}&maxResults=10'
+        response = requests.get(url)
+        data = response.json()
+
+        if 'items' in data:
+            for item in data['items']:
+                info = item['volumeInfo']
+                picks.append({
+                    'title': info.get('title', 'No title'),
+                    'authors': ', '.join(info.get('authors', [])),
+                    'thumbnail': info.get('imageLinks', {}).get('thumbnail', ''),
+                    'description': info.get('description', 'No description'),
+                    'google_id': item.get('id', ''),
+                })
+    except Exception as e:
+        print("API Error:",)
+
+
     return render(request, 'home.html', {
         'username': request.user.username,
+        'picks': picks,
     })
+
 
 
 @login_required
@@ -45,9 +72,12 @@ def Library_view(request):
 @login_required
 def  user_view(request):
     library_count = LibraryEntry.objects.filter(user=request.user).count()
+    is_admin = request.user.is_superuser or request.user.is_staff
+
     return render(request, 'user.html', {
     'username': request.user.username,
     'library_count': library_count,
+    'is_admin': is_admin,
     })
 
 def register_views(request):
@@ -206,7 +236,5 @@ def delete_book(request, entry_id):
     return redirect('Library')
         
 
-
-        
 
         
