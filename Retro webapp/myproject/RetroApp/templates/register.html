@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     {% load static %}
+    {% load profanity  %}
     <link rel="stylesheet" href="{% static 'css/register.css' %}">
 </head>
 <body>
@@ -19,11 +20,12 @@
         <input type="submit" value="Sign Up">
 
     </form>
+    <p></p>
 
 
    {% if messages %} 
     {% for message in messages %}
-      <p style="color: red;">{{ message }}</p>
+      <p class="messages" style="color: red;">{{ message }}</p>
     {% endfor %}
    {% endif %}
 

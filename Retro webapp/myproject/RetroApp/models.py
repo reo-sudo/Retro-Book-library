@@ -20,4 +20,3 @@ class LibraryEntry(models.Model):
         return f"{self.user.username}' copy of {self.book.title}"
     
 
-

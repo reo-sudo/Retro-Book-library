@@ -28,7 +28,7 @@
                     <p> Description: {{ entry.book.description }}</p>
                     <form action="{% url 'delete_book' entry.id %}" method="POST" style="display:inline;">
                         {% csrf_token %}
-                        <button type="submit">Delete</button>
+                        <button type="submit">Return Book</button>
                     </form>
                     
                 </li>

@@ -31,7 +31,7 @@ def login_view(request):
 
 @login_required
 def home_view(request):
-    keywords = ['science', 'maths', 'coding', 'fantasy', 'history', 'health']
+    keywords = ['science', 'maths', 'codeing', 'fantasy', 'history', 'health']
     query = random.choice(keywords)
 
     picks = []
