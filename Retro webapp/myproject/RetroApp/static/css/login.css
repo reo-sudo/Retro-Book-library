@@ -161,6 +161,22 @@ input {
  
 }
 
+.register {
+  text-align: center;
+}
+
+button {
+  background-color: var(--input-color);
+   width: 100px;
+   height: 20px auto;
+   border-radius: 5 px;
+   border-color: var(--border-color);
+   color:hsl(152 84% 70%);
+   padding: 5px;
+   font-family: Retro;
+   text-align: center;
+}
+
 input[type="submit"] {
     padding: 9px;
     height: 30px;
@@ -196,4 +212,5 @@ Input {
     padding: 0.75rem;
     font-size: 1rem;
 }
+
 
