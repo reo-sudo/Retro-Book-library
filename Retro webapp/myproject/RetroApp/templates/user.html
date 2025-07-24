@@ -8,9 +8,24 @@
     <link rel="stylesheet" href="{% static 'css/user.css' %}">
 </head>
 <body>
-    <h2>User: {{ username }} </h2>
+    <ul id="NavBar">
+        <li><a href="{% url 'home' %}">Return Home</a></li>
+    </ul>
+    <div class="Userbox">
+        <h1>{{ username }}'s Profile</h1>
+        {% if username == "Admin" %}
+        <h2>User Status: ADMIN ROLE 👑 </h2>
+        {% else %}
+        <h2>User Status: REGULAR ROLE </h2>
+        {% endif %}
+    </div>
+    
+    <div class="BookBox"><p> you have {{ library_count }} books  {{ library_count|pluralize }} in your library. 📚</p></div>
+    
 
-       <h2>Page Under Development</h2>
+    
+
+       
 
      
     <div id="interlaced"></div>
