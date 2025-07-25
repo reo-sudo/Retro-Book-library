@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/Library.css' %}">
+</head>
+<body>
+    <ul id="NavBar">
+        <li><a href="{% url 'home' %}">Return Home</a></li>
+    </ul>
+
+    <h1>{{ username }}'s Library 📚</h1>
+        
+    <div class="container">
+        {% if library_entries %}
+                {% for entry in library_entries %}
+                   <div class="BookCard">
+                        <h3>{{ entry.book.title }}</h3>
+                        <p><em>by {{ entry.book.authors }}</em></p>
+                        <img src="{{ entry.book.thumbnail }}" alt="img" width="120">
+                        <p> Description: {{ entry.book.description|truncatewords:50 }}</p>
+                        <form action="{% url 'delete_book' entry.id %}" method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit">Return Book</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="EmptyMessages">>No Book Found Stored In Library</p>
+            {% endif %}
+    </div>
+        
+        <div id="interlaced"></div>
+        <div id="glare"></div>
+
+</body>
+</html>

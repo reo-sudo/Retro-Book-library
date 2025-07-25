@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+   <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required>
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="password" required>
+        <br>
+        <input type="submit" value="Sign Up">
+
+    </form>
+    <p></p>
+
+
+   {% if messages %} 
+    {% for message in messages %}
+      <p class="messages" style="color: red;">{{ message }}</p>
+    {% endfor %}
+   {% endif %}
+
+    
+    
+
+
+    <div id="interlaced"></div>
+    <div id="glare"></div>
+
+
+
+</body>
+</html>
