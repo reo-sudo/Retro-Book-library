@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="{% static 'css/register.css' %}">
 </head>
 <body>
+  <div class="container">
     <h1>Register</h1>
     <form method="POST">
         {% csrf_token %}
@@ -19,7 +20,12 @@
         <input type="submit" value="Sign Up">
 
     </form>
-    <p></p>
+  </div>  
+    <div class="container">
+        <p>Already have an account?</p>
+        <button class="button"><a href="{% url 'login' %}">Login</a></button>
+        
+  
 
 
    {% if messages %} 
@@ -28,6 +34,7 @@
     {% endfor %}
    {% endif %}
 
+   </div>
     
     
 
