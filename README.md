@@ -1,7 +1,7 @@
 # 🌌 RETRO BOOK LIBRARY 📚
 
 <div align="center">
-![Retro Banner](https://via.placeholder.com/800x200/FF6B6B/FFFFFF?text=RETRO+BOOK+LIBRARY)
+
 
 [![Python](https://img.shields.io/badge/Python-3.8+-FF6B6B?style=for-the-badge&logo=python&logoColor=white)]()
 [![Django](https://img.shields.io/badge/Django-4.0+-4ECDC4?style=for-the-badge&logo=django&logoColor=white)]()
