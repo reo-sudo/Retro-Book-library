@@ -13,6 +13,7 @@
 A simple Django app made for a school project. It allows you to manage books in a retro-style interface.
 
 ---
+<div>'''bash
 ··························································
 : ____  _____ _____ ____   ___    ____   ___   ___  _  __:
 :|  _ \| ____|_   _|  _ \ / _ \  | __ ) / _ \ / _ \| |/ /:
@@ -23,7 +24,7 @@ A simple Django app made for a school project. It allows you to manage books in 
 :| |    | ||  _ \| |_) |  / _ \ | |_) \ V /              :
 :| |___ | || |_) |  _ <  / ___ \|  _ < | |               :
 :|_____|___|____/|_| \_\/_/   \_\_| \_\|_|               :
-··························································
+··························································</div>
 ---
 
 ## Contents
