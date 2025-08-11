@@ -26,7 +26,7 @@
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
-                    <li class="{{ message.tags }}">> SYSTEM: {{ message }} </li>
+                    <li class="{{ message.tags }}" style="color: greenyellow;" >> SYSTEM: {{ message }} </li>
                 {% endfor %}
             </ul>
         {% endif %}
