@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+</head>
+<body>
+    <ul id="NavBar">
+        <li><a href="{% url 'home' %}">Return Home</a></li>
+    </ul>
+    <div class="ProfileBox">
+        <div class="Userbox">
+            <h1>{{ username }}'s Profile</h1>
+            <p> you joind on: {{ join_date }}</p>
+            {% if username == "Admin" %}
+            <h2>User Status: ADMIN ROLE 👑 </h2>
+            {% else %}
+            <h2>User Status: REGULAR ROLE </h2>
+            {% endif %}
+        </div>
+        
+        <div class="BookBox">
+            <p> you have {{ library_count }} books  {{ library_count|pluralize }} in your library. 📚</p>
+        </div>
+        
+        <div class="LevelBox">
+            <p> Your level is: {{ level }}</p>
+        </div>
+    </div>
+
+    
+
+       
+
+     
+    <div id="interlaced"></div>
+    <div id="glare"></div> 
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/Admin.css' %}">
+</head>
+<body>
+    <ul id="NavBar">
+        <li><a href="{% url 'home' %}">Return Home</a></li>
+    </ul>
+
+    <h1>Admin Dashboard</h1>
+
+    <p id="total_u" ><strong>System Users:</strong> {{ total_users }}</p>
+<div class="container"> 
+
+    <h2>Users and Their Libraries:</h2>
+    <ul>
+        {% for username, entries in user_library_map.items %}
+            <li>
+                <strong>USER: {{ username }}</strong>
+                <ul>
+                    {% for entry in entries %}
+                        <li style="margin-bottom: 20px">
+                            <h5>{{ entry.book.title }}</h5>
+                            <p>{{ entry.book.authors }}</p>
+                        </li>
+                    {% empty %}
+                        <li id="no_book">No books in library.</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+</div>
+    
+
+
+    <div id="interlaced"></div>
+    <div id="glare"></div>
+
+</body>
+</html> 

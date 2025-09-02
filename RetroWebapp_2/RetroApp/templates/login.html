@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <h1><span class="blink">Log in</span></h1>
+<div class="container">     
+    <form  id="form" method="POST">
+        {% csrf_token %}
+        <label for="username">username:</label>
+        <input type="text"  name="username" id="usernameID" class="login-form-field" placeholder="UserID" required>
+        <br><br>
+        <label for="password">password:</label>
+        <input type="password" id="passwordId" name="password" placeholder="passID" required>
+        <br><br>
+        <input type="submit" value="Log In"> 
+    </form>
+    
+    <div class="register">
+      <p>New user? Sign up Here!</p> 
+      <a href="{% url 'register' %}"><button>Click Here!</button></a>
+    </div>
+    
+</div>   
+
+
+    
+ 
+    
+
+    {% if messages %}
+    {% for message in messages %}
+      <p style="color: yellow;">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+  
+
+
+    
+   
+   
+    <div id="interlaced"></div>
+    <div id="glare"></div>    
+     
+
+    
+</body>
+</html>
