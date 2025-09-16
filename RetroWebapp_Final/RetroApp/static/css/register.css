@@ -1,0 +1,255 @@
+@font-face {
+    font-family: 'Retro';
+    src: url('../fonts/Qadang-m2KLP.ttf') format('truetype');
+  }
+
+  :root {
+    --bg--color: #0a0a12;
+    --text-color: #00ff41;
+    --highlight-color: #008f11;
+    --border-color: rgba(0, 255, 65, 0.7);
+    --glow-color: rgba(0, 255, 65, 0.7);
+    --error-color: #ff0033;
+    --input-color: rgb(1, 44, 16)19;
+}
+
+
+
+
+body {
+    background-color: var(--bg--color);
+    color: hsl(152 84% 70%);
+    font-family: Retro;
+    text-shadow: 0 0 5px hsl(154, 84%, 70%);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+   
+}
+
+
+.container {
+    max-width: 2200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+    background-color: rgba(0, 10, 0, 0.7);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(0, 255, 65, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+}
+
+
+input:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 10px var(--glow-color);
+}
+    
+
+
+#glare {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0 255, 65, 0.1) 0%,
+        rgba(0, 0, 0, 0) 70%
+    );
+    pointer-events: none;
+    z-index: 100;
+    
+}
+
+@keyframes lines {
+    0% {background-position: 0px 0px}
+    50% {background-position: 0px 0px}
+    51% {background-position: 0px 2px}
+    100% {background-position: 0px 2px}
+}
+
+#interlaced {
+    position: fixed;
+    background: repeating-linear-gradient(transparent 0px 1px, hsl(154 0% 0%/.3) 
+    3px 4px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    animation: lines 0.06666666s linear infinite;
+}
+
+
+@keyframes blink {
+    0% {opacity: 0}
+    30% {opacity: 1}
+    70% {opacity: 1}
+    100% {opacity: 0}
+}
+
+.blink {
+    animation: blink 0.4s linear infinite;
+}
+
+
+h1 {
+    text-align: center;    
+    font-size: 55px;
+    color: var(--highlight-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    text-shadow: 0 0 5px var(--glow-color);
+    
+}
+
+.blink {
+    animation: blink 2s linear infinite;
+    display: inline-block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.login {
+  text-align: center;
+}
+
+button {
+  background-color: var(--input-color);
+   width: 100px;
+   height: 20px auto;
+   border-radius: 5 px;
+   border-color: var(--border-color);
+   color:hsl(152 84% 70%);
+   padding: 5px;
+   font-family: Retro;
+   text-align: center;
+}
+ 
+button:hover {
+    background-color: rgb(110, 111, 111);
+    cursor: pointer;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px var(--glow-color);
+    position: relative;
+    background-color: rgba(0, 10, 0, 0.7);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(0, 255, 65, 0.1) 1px,
+        transparent 1px
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+}
+
+
+
+
+input {
+ background-color: var(--input-color);
+ border-radius: px;
+ border-color: var(--border-color);
+ color:hsl(152 84% 70%);
+ padding: 5px;
+ font-family: Retro;
+ 
+ 
+ 
+}
+
+input[type="submit"] {
+    padding: 9px;
+    height: 30px;
+    width: 90px;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(110, 111, 111);
+    cursor: pointer;
+
+}
+input[type="submit"]:active {
+    background-color: var(--input-color);
+}
+
+textarea:focus, input:focus{
+    outline: none;;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    color: var(--highlight-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    text-shadow: 0 0 5px var(--glow-color);
+}
+
+
+Input {
+    width: 70%;
+    padding: 0.75rem;
+    font-size: 1rem;
+}
+
+
