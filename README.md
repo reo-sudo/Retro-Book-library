@@ -46,8 +46,17 @@ Built during Year 13 Digital Tech, this web app simulates a small library system
 git clone https://github.com/reo-sudo/Retro-Book-library.git
 cd Retro-Book-library
 python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+```
+```Mac/Linx:
+ source venv/bin/activate
+```
+``` Windows:
+venv\Scripts\activate
+```
+``` Install the requiremnts
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser  # optional
 python manage.py runserver
+```
+
