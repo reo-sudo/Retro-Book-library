@@ -32,7 +32,7 @@ Built during Year 13 Digital Tech, this web app simulates a small library system
 
 ## Features
 
-- **User System**: Registration, login, Student/Admin roles  
+- **User System**: Registration, login, Admin roles  
 - **Book Operations**: Add book, borrow, return, list view  
 - **Search**: External (Google Books) + local  
 - **Basic Retro Style**: Neon palette CSS + responsive layout  
