@@ -47,27 +47,27 @@ git clone https://github.com/reo-sudo/Retro-Book-library.git
 cd Retro-Book-library
 python -m venv venv
 ```
-#MAC/Linx:
+MAC/Linx:
 ```Mac/Linx:
  source venv/bin/activate
 ```
-#Windows:
+Windows:
 ``` Windows:
 venv\Scripts\activate
 ```
-#install the dependencies
+install the dependencies
 ``` Install the requirements.txt
 pip install -r requirements.txt
 ```
-#Create SuperUser (optional)
+Create SuperUser (optional)
 ```
 python manage.py createsuperuser  # optional
 ```
-#Run Server
+Run Server
 ```
 python manage.py runserver
 ```
-#In your Browser go to localhost:
+In your Browser go to localhost:
 ```
  http://127.0.0.1:8000/
 ```
